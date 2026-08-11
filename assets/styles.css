@@ -250,6 +250,7 @@ header {
   margin-bottom: 18px;
 }
 .hero h1 .line { display: block; }
+.hero-accent { color: var(--accent); }
 .hero .subhead {
   font-size: 19px;
   font-weight: 600;
