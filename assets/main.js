@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburger.addEventListener('click', function () {
       var isOpen = header.classList.toggle('nav-open');
       hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('nav-locked', isOpen);
       if (!isOpen) {
         closeAllDropdowns();
       }
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
       closeAllDropdowns();
       if (header) header.classList.remove('nav-open');
       if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-locked');
     }
   });
 

@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="City University of Seattle monogram">
-  <circle cx="20" cy="20" r="20" fill="#0b2f5c"/>
-  <text x="20" y="26" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="15" fill="#ffffff">CU</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 66" width="220" height="48" role="img" aria-label="CityUniversity of Seattle">
+  <text x="0" y="34" font-family="Inter, Arial, sans-serif" font-size="32" fill="#0A253F">
+    <tspan font-weight="800">CityU</tspan><tspan font-weight="400">niversity</tspan>
+  </text>
+  <text x="2" y="56" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="#5b6b7a">of Seattle</text>
 </svg>
