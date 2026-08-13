@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var hoverCloseTimers = new WeakMap();
+
   dropdownParents.forEach(function (parent) {
     var btn = parent.querySelector('.nav-top-btn');
     if (!btn) return;
@@ -40,6 +42,22 @@ document.addEventListener('DOMContentLoaded', function () {
       closeAllDropdowns(willOpen ? parent : null);
       parent.classList.toggle('open', willOpen);
       btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+
+    // Desktop hover-intent: keep the menu open through brief gaps or
+    // diagonal mouse movement instead of closing the instant the
+    // pointer dips outside the hit area.
+    parent.addEventListener('mouseenter', function () {
+      if (window.matchMedia('(max-width: 980px)').matches) return;
+      clearTimeout(hoverCloseTimers.get(parent));
+      parent.classList.add('hover-open');
+    });
+    parent.addEventListener('mouseleave', function () {
+      if (window.matchMedia('(max-width: 980px)').matches) return;
+      var timer = setTimeout(function () {
+        parent.classList.remove('hover-open');
+      }, 300);
+      hoverCloseTimers.set(parent, timer);
     });
   });
 

@@ -208,7 +208,7 @@ header.nav-open { backdrop-filter: none; }
 
 .dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 0;
   min-width: 260px;
   background: #fff;
@@ -217,12 +217,27 @@ header.nav-open { backdrop-filter: none; }
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
   padding: 10px;
+  margin-top: 10px;
   display: none;
   flex-direction: column;
   gap: 2px;
 }
+/* Invisible bridge closes the gap between the button and the dropdown
+   so the pointer never leaves has-dropdown's hit area while moving
+   down to the menu — otherwise :hover drops and the menu closes early.
+   Matches the dropdown's own width (not just the button's), since the
+   panel is wider than the button that opens it. */
+.has-dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 260px;
+  height: 10px;
+}
 .has-dropdown:hover .dropdown,
-.has-dropdown.open .dropdown { display: flex; }
+.has-dropdown.open .dropdown,
+.has-dropdown.hover-open .dropdown { display: flex; }
 .dropdown a {
   padding: 11px 14px;
   border-radius: 8px;
